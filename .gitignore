@@ -83,4 +83,10 @@ venv.bak/
 # TensorFlow and Keras models
 *.h5
 *.keras
+
+# Data files
 *.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.7z
