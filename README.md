@@ -115,6 +115,9 @@ Features Order: [age, sex (1=Male,0=Female), cp (0-3), trestbps, chol, fbs (0/1)
 ### Before Cleaning
 ![Before Cleaning](imgs/before_cleaning.png)
 
+### Before Cleaning
+![after Cleaning](imgs/after_cleaning.png)
+
 ### Distribution of Heart Disease Cases
 ![Distribution of Heart Disease Cases](imgs/Distribution_of_Heart_Disease_Cases.png)
 
