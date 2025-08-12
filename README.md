@@ -112,41 +112,53 @@ Features Order: [age, sex (1=Male,0=Female), cp (0-3), trestbps, chol, fbs (0/1)
 
 ## Visualizations and Insights
 
-### Before Cleaning
-![Before Cleaning](imgs/before_cleaning.png)
+### Data Overview – Before Cleaning  
+This visualization shows the state of the dataset before any preprocessing.  
+![Before Cleaning](imgs/before_cleaning.png)  
 
-### Before Cleaning
-![after Cleaning](imgs/after_cleaning.png)
+### Data Overview – After Cleaning  
+The dataset after handling missing values, duplicates, and inconsistencies.  
+![After Cleaning](imgs/after_cleaning.png)  
 
-### Distribution of Heart Disease Cases
-![Distribution of Heart Disease Cases](imgs/Distribution_of_Heart_Disease_Cases.png)
+### Distribution of Heart Disease Cases  
+A breakdown of the proportion of patients with and without heart disease.  
+![Distribution of Heart Disease Cases](imgs/Distribution_of_Heart_Disease_Cases.png)  
 
-### Age Distribution by Heart Disease Status
-![Age Distribution by Heart Disease Status](imgs/Age_Distribution_by_Heart_Disease_Status.png)
+### Age Distribution by Heart Disease Status  
+Age ranges of patients, separated by heart disease diagnosis.  
+![Age Distribution by Heart Disease Status](imgs/Age_Distribution_by_Heart_Disease_Status.png)  
 
-### Cholesterol Levels by Heart Disease Status
-![Cholesterol Levels by Heart Disease Status](imgs/Cholesterol_Levels_by_Heart_Disease_Status.png)
+### Cholesterol Levels by Heart Disease Status  
+Comparing cholesterol levels between patients with and without heart disease.  
+![Cholesterol Levels by Heart Disease Status](imgs/Cholesterol_Levels_by_Heart_Disease_Status.png)  
 
-### Heart Disease by Sex
-![Heart Disease by Sex](imgs/Heart_Disease_by_Sex.png)
+### Heart Disease by Sex  
+Percentage of male and female patients diagnosed with heart disease.  
+![Heart Disease by Sex](imgs/Heart_Disease_by_Sex.png)  
 
-### Heart Disease by Chest Pain Type
-![Heart Disease by Chest Pain Type](imgs/Heart_Disease_by_Chest_Pain_Type.png)
+### Heart Disease by Chest Pain Type  
+Heart disease occurrence across different types of chest pain symptoms.  
+![Heart Disease by Chest Pain Type](imgs/Heart_Disease_by_Chest_Pain_Type.png)  
 
-### Correlation Matrix
-![Correlation Matrix](imgs/Correlation_Matrix.png)
+### Correlation Between Features  
+A correlation matrix highlighting relationships between dataset variables.  
+![Correlation Matrix](imgs/Correlation_Matrix.png)  
 
-### Feature Importance
-![Feature Importance](imgs/Feature_Importance.png)
+### Feature Importance for Prediction  
+The most influential features in predicting heart disease.  
+![Feature Importance](imgs/Feature_Importance.png)  
 
-### Model Accuracy and Loss
-![Model Accuracy and Loss](imgs/Model_Acc_loss.png)
+### Model Training Performance  
+Accuracy and loss curves during model training.  
+![Model Accuracy and Loss](imgs/Model_Acc_loss.png)  
 
-### Confusion Matrix
-![Confusion Matrix](imgs/confusion_matrix_model.png)
+### Model Evaluation – Confusion Matrix  
+A confusion matrix summarizing model predictions vs. actual outcomes.  
+![Confusion Matrix](imgs/confusion_matrix_model.png)  
 
-### Web Page with Predction 
-![WebPage](imgs/website_with_prediction.png)
+### Web Application – Prediction Interface  
+Screenshot of the deployed web application with prediction functionality.  
+![Web Page with Prediction](imgs/website_with_prediction.png)  
 
 ## Project Structure
 
