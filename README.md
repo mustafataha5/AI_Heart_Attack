@@ -29,7 +29,7 @@ Dataset: Sourced from [Kaggle Heart Disease Data](https://www.kaggle.com/dataset
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/heart-disease-prediction.git
+   git clone https://github.com/mustafataha5/heart-disease-prediction.git
    cd heart-disease-prediction
    ```
 
@@ -113,10 +113,10 @@ Features Order: [age, sex (1=Male,0=Female), cp (0-3), trestbps, chol, fbs (0/1)
 ## Visualizations and Insights
 
 ### Before Cleaning
-![Before Cleaning](imgs/before_cleaning.png)
+![Before Cleaning]("./imgs/before_cleaning.png")
 
 ### Distribution of Heart Disease Cases
-![Distribution of Heart Disease Cases](imgs/Distribution_of_Heart_Disease_Cases.png)
+![Distribution of Heart Disease Cases]("./imgs/Distribution_of_Heart_Disease_Cases.png")
 
 ### Age Distribution by Heart Disease Status
 ![Age Distribution by Heart Disease Status](imgs/Age_Distribution_by_Heart_Disease_Status.png)
