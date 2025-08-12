@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Heart Disease Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        pre { white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body class="h-full flex items-center justify-center p-4">
+    <div class="max-w-4xl w-full bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">Heart Disease Prediction</h1>
+
+        <div class="mb-4 text-center">
+            <button id="toggleInput" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+                Switch to JSON Input
+            </button>
+        </div>
+
+        <!-- FORM INPUT MODE -->
+        <form id="featureForm" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block font-semibold">Age (years)</label>
+                    <input type="number" name="age" min="1" max="120" required
+                           placeholder="e.g. 55 (1-120)" value="55"
+                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                </div>
+                <div>
+                    <label class="block font-semibold">Sex</label>
+                    <select name="sex" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="Male" selected>Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold">Chest Pain Type (cp)</label>
+                    <select name="cp" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="atypical angina" selected>Atypical Angina</option>
+                        <option value="non-anginal">Non-anginal</option>
+                        <option value="typical angina">Typical Angina</option>
+                        <option value="asymptomatic">Asymptomatic</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold">Resting Blood Pressure (trestbps, mm Hg)</label>
+                    <input type="number" name="trestbps" min="50" max="250" required
+                           placeholder="e.g. 130 (50-250)" value="130"
+                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                </div>
+                <div>
+                    <label class="block font-semibold">Serum Cholesterol (chol, mg/dl)</label>
+                    <input type="number" name="chol" min="50" max="600" required
+                           placeholder="e.g. 250 (50-600)" value="250"
+                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                </div>
+                <div>
+                    <label class="block font-semibold">Fasting Blood Sugar > 120 mg/dl (fbs)</label>
+                    <select name="fbs" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="FALSE" selected>No</option>
+                        <option value="TRUE">Yes</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold">Resting ECG (restecg)</label>
+                    <select name="restecg" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="normal" selected>Normal</option>
+                        <option value="st-t abnormality">ST-T Abnormality</option>
+                        <option value="lv hypertrophy">Left Ventricular Hypertrophy</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold">Max Heart Rate Achieved (thalach)</label>
+                    <input type="number" name="thalach" min="60" max="220" required
+                           placeholder="e.g. 150 (60-220)" value="150"
+                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                </div>
+                <div>
+                    <label class="block font-semibold">Exercise Induced Angina (exang)</label>
+                    <select name="exang" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="FALSE" selected>No</option>
+                        <option value="TRUE">Yes</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold">ST Depression Induced by Exercise (oldpeak)</label>
+                    <input type="number" name="oldpeak" step="0.1" min="0" max="7" required
+                           placeholder="e.g. 1.0 (0-7)" value="1.0"
+                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                </div>
+                <div>
+                    <label class="block font-semibold">Slope of Peak Exercise ST Segment (slope)</label>
+                    <select name="slope" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="upsloping" selected>Upsloping</option>
+                        <option value="flat">Flat</option>
+                        <option value="downsloping">Downsloping</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold">Number of Major Vessels Colored (ca)</label>
+                    <input type="number" name="ca" min="0" max="3" required
+                           placeholder="e.g. 0 (0-3)" value="0"
+                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
+                </div>
+                <div>
+                    <label class="block font-semibold">Thalassemia (thal)</label>
+                    <select name="thal" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="normal" selected>Normal</option>
+                        <option value="fixed defect">Fixed Defect</option>
+                        <option value="reversable defect">Reversible Defect</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit"
+                    class="mt-6 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition">
+                Predict
+            </button>
+        </form>
+
+        <!-- JSON INPUT MODE -->
+        <div id="jsonInputContainer" class="hidden">
+            <label class="block font-semibold mb-2">Paste Features Array(s) (JSON format):</label>
+            <textarea id="jsonInput" rows="8" class="w-full border-gray-300 rounded-md shadow-sm p-2" placeholder='
+Example:
+[
+  [55,130,250,150,1.0,0,1,1,0,0,0,1,0,0,0,1,0,0],
+  [60,140,300,140,2.0,1,0,0,1,0,1,0,1,0,1,0,1,0]
+]'></textarea>
+            <button id="predictJsonBtn"
+                    class="mt-4 w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition">
+                Predict
+            </button>
+        </div>
+
+        <!-- Prediction Result -->
+        <div id="result" class="mt-6"></div>
+
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleInput');
+        const form = document.getElementById('featureForm');
+        const jsonContainer = document.getElementById('jsonInputContainer');
+        const resultDiv = document.getElementById('result');
+
+        toggleBtn.onclick = () => {
+            const isFormVisible = !form.classList.contains('hidden');
+            form.classList.toggle('hidden', isFormVisible);
+            jsonContainer.classList.toggle('hidden', !isFormVisible);
+            toggleBtn.textContent = isFormVisible ? "Switch to JSON Input" : "Switch to Form Input";
+            resultDiv.innerHTML = '';
+        };
+
+        function encodeFeatures(formData) {
+            const age = Number(formData.get('age'));
+            const trestbps = Number(formData.get('trestbps'));
+            const chol = Number(formData.get('chol'));
+            const thalach = Number(formData.get('thalach'));
+            const oldpeak = Number(formData.get('oldpeak'));
+            const ca = Number(formData.get('ca'));
+
+            const sex_Male = formData.get('sex') === 'Male' ? 1 : 0;
+            const cp_atypical_angina = formData.get('cp') === 'atypical angina' ? 1 : 0;
+            const cp_non_anginal = formData.get('cp') === 'non-anginal' ? 1 : 0;
+            const cp_typical_angina = formData.get('cp') === 'typical angina' ? 1 : 0;
+            const fbs_TRUE = formData.get('fbs') === 'TRUE' ? 1 : 0;
+            const restecg_normal = formData.get('restecg') === 'normal' ? 1 : 0;
+            const restecg_stt_abnormality = formData.get('restecg') === 'st-t abnormality' ? 1 : 0;
+            const exang_TRUE = formData.get('exang') === 'TRUE' ? 1 : 0;
+            const slope_flat = formData.get('slope') === 'flat' ? 1 : 0;
+            const slope_upsloping = formData.get('slope') === 'upsloping' ? 1 : 0;
+            const thal_fixed_defect = formData.get('thal') === 'fixed defect' ? 1 : 0;
+            const thal_reversable_defect = formData.get('thal') === 'reversable defect' ? 1 : 0;
+
+            return [
+                age, trestbps, chol, thalach, oldpeak, ca,
+                sex_Male,
+                cp_atypical_angina, cp_non_anginal, cp_typical_angina,
+                fbs_TRUE,
+                restecg_normal, restecg_stt_abnormality,
+                exang_TRUE,
+                slope_flat, slope_upsloping,
+                thal_fixed_defect, thal_reversable_defect
+            ];
+        }
+
+        async function makePrediction(features) {
+            resultDiv.innerHTML = '';
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ features })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    let predictions = [];
+                    // Check if it's a single prediction or multiple predictions
+                    if (data.predictions) {
+                        predictions = data.predictions;
+                    } else if (data.probability !== undefined) {
+                        predictions = [{
+                            diagnosis: data.diagnosis,
+                            probability: data.probability
+                        }];
+                    } else {
+                        resultDiv.innerHTML = `<div class="p-4 rounded-md border bg-gray-100 text-gray-800">Unexpected response format.</div>`;
+                        return;
+                    }
+                    
+                    let html = '';
+                    predictions.forEach((pred, idx) => {
+                        let colorClass;
+                        // Added check to ensure pred.probability is a number
+                        if (typeof pred.probability === 'number') {
+                            if (pred.probability > 0.6) {
+                                colorClass = 'bg-red-100 border-red-300 text-red-800';
+                            } else if (pred.probability >= 0.3) {
+                                colorClass = 'bg-yellow-100 border-yellow-300 text-yellow-800';
+                            } else {
+                                colorClass = 'bg-green-100 border-green-300 text-green-800';
+                            }
+                        } else {
+                            // Default to a neutral color if the probability is not a number
+                            colorClass = 'bg-gray-100 border-gray-300 text-gray-800';
+                        }
+                        
+                        // Add some spacing between multiple results
+                        const marginClass = idx > 0 ? 'mt-4' : '';
+
+                        html += `<div class="p-4 rounded-md border ${colorClass} ${marginClass}">
+                            <strong>Prediction ${idx + 1}:</strong><br/>
+                            Diagnosis: ${pred.diagnosis}<br/>
+                            Probability: ${typeof pred.probability === 'number' ? pred.probability.toFixed(4) : 'N/A'}
+                        </div>`;
+                    });
+                    resultDiv.innerHTML = html;
+                } else {
+                    resultDiv.innerHTML = `<div class="p-4 rounded-md border bg-red-100 text-red-800">
+                        Error: ${data.error || 'Unknown error'}
+                    </div>`;
+                }
+            } catch (err) {
+                resultDiv.innerHTML = `<div class="p-4 rounded-md border bg-red-100 text-red-800">
+                    Request failed: ${err}
+                </div>`;
+            }
+        }
+
+        // Handle form submission
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const features = encodeFeatures(formData);
+            // Wrap single user features in an array for backend compatibility
+            makePrediction([features]);
+        };
+
+        // JSON multiple users prediction
+        document.getElementById('predictJsonBtn').onclick = () => {
+            let allFeatures;
+            try {
+                allFeatures = JSON.parse(document.getElementById('jsonInput').value);
+            } catch {
+                resultDiv.innerHTML = `<div class="p-4 rounded-md border bg-red-100 text-red-800">Invalid JSON format!</div>`;
+                return;
+            }
+
+            if (!Array.isArray(allFeatures) || allFeatures.length === 0) {
+                resultDiv.innerHTML = `<div class="p-4 rounded-md border bg-red-100 text-red-800">JSON input must be a non-empty array of feature arrays!</div>`;
+                return;
+            }
+
+            for (const features of allFeatures) {
+                if (!Array.isArray(features)) {
+                    resultDiv.innerHTML = `<div class="p-4 rounded-md border bg-red-100 text-red-800">Each element in the array must be an array of features!</div>`;
+                    return;
+                }
+            }
+
+            makePrediction(allFeatures);
+        };
+    </script>
+</body>
+</html>
