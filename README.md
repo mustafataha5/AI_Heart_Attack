@@ -142,6 +142,9 @@ Features Order: [age, sex (1=Male,0=Female), cp (0-3), trestbps, chol, fbs (0/1)
 ### Confusion Matrix
 ![Confusion Matrix](imgs/confusion_matrix_model.png)
 
+### Web Page with Predction 
+![WebPage](imgs/website_with_prediction.png)
+
 ## Project Structure
 
 ```
